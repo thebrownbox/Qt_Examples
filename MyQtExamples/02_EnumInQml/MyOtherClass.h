@@ -15,8 +15,6 @@ public:
     Q_ENUM(INSIDE_CAP2)
     explicit MyOtherClass(QObject *parent = nullptr);
 
-signals:
-
 };
 
 #endif // MYOTHERCLASS_H

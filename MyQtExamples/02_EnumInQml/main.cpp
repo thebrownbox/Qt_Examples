@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 //    qmlRegisterType<MyTestClass>("INSIDE_NOCAP_IMPORT", 1, 0, "inside_NOCAP");
 
-    qmlRegisterType<MyOtherClass>("INSIDE_CAP2_IMPORT", 1, 0, "INSIDE_CAP2");
+    MyOtherClass c; // To register type
 
     engine.load(url);
 
