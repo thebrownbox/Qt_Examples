@@ -1,2 +1,3 @@
 TEMPLATE = subdirs
-SUBDIRS = setContextProperty
+SUBDIRS = 01_setContextProperty \
+			02_EnumInQml
