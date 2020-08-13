@@ -1,3 +1,4 @@
+#include "ClassForQml.h"
 #include "MyOtherClass.h"
 #include "MyTestClass.h"
 
@@ -27,6 +28,8 @@ int main(int argc, char *argv[])
 //    qmlRegisterType<MyTestClass>("INSIDE_NOCAP_IMPORT", 1, 0, "inside_NOCAP");
 
     MyOtherClass c; // To register type
+
+    qmlRegisterType<ClassForQml>("ClassForQmlImport", 1, 0, "ClassForQml");
 
     engine.load(url);
 
