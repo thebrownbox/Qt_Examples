@@ -1,7 +1,5 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
-import QtQuick.Controls 2.0
-
+import QtQuick 2.9
+import QtQuick.Window 2.2
 
 Window {
 	visible: true

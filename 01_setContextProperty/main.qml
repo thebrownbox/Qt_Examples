@@ -12,6 +12,6 @@ Window {
 	 x: 233
 	 y: 216
 	 text: theSameObjectInCpp.myName()
-	 font.pixelSize: 12
+	font.pixelSize: 12
  }
 }
