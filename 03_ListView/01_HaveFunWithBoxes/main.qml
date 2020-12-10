@@ -113,7 +113,7 @@ Window {
 
 	function getContentHeightForFlickable()
 	{
-		return Math.max(0, (myGridView.children.length / 4 + 1) * mySampleBox.height)
+		return (myGridView.children.length / 4 + 1) * mySampleBox.height
 	}
 
 	function addBoxByQml()
