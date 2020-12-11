@@ -8,8 +8,18 @@
 class MyAppController : public QObject
 {
     Q_OBJECT
+    Q_ENUMS(MY_SHAPE_TYPE_E)
+
 public:
-    explicit MyAppController(QQmlApplicationEngine *engine);
+    enum MY_SHAPE_TYPE_E
+    {
+        MY_SHAPE_BOX,
+        MY_SHAPE_CIRCLE,
+        MY_SHAPE_TRIANGLE,
+        MY_SHAPE_MAX
+    };
+public:
+    explicit MyAppController(QQmlApplicationEngine *engine = nullptr);
 
 signals:
 
@@ -18,7 +28,7 @@ public:
     Q_INVOKABLE void test();
     Q_INVOKABLE void clickGenerateBox(QQuickItem* sampleBox);
     Q_INVOKABLE void addBoxByCpp(QObject* gridView);
-
+    Q_INVOKABLE void addShapeByCpp(QQuickItem* gridView, int shapeType, int index, QVariant color);
 
 public:
     QQmlApplicationEngine* getEngine() { return mEngine; }
@@ -28,6 +38,7 @@ public:
 private:
     QQmlApplicationEngine* mEngine;
     QQuickItem* createBox();
+    QQuickItem* createShape(MY_SHAPE_TYPE_E type, int index, QVariant color);
 
 //============== Test function
 private:

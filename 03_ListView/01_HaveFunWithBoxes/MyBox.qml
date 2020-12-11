@@ -3,11 +3,12 @@ import QtQuick 2.0
 Rectangle {
 
 	property int myIndex: 0
+	property color myColor: "green"
 
 	id: rectangle
 	width: 100
 	height: 100
-	color: "red"
+	color: myColor
 	border.color: "black"
 	radius: 10
 	border.width: 3
