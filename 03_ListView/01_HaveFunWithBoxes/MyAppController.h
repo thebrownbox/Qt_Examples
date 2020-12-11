@@ -26,8 +26,6 @@ signals:
 
 public:
     Q_INVOKABLE void test();
-    Q_INVOKABLE void clickGenerateBox(QQuickItem* sampleBox);
-    Q_INVOKABLE void addBoxByCpp(QObject* gridView);
     Q_INVOKABLE void addShapeByCpp(QQuickItem* gridView, int shapeType, int index, QVariant color);
 
 public:
@@ -40,7 +38,7 @@ private:
     QQuickItem* createBox();
     QQuickItem* createShape(MY_SHAPE_TYPE_E type, int index, QVariant color);
 
-//============== Test function
+//============== Test function ============
 private:
     void createBoxForTest();
     void turnSampleBoxToGray();

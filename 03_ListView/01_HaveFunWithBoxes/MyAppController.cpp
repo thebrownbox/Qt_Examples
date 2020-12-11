@@ -73,19 +73,7 @@ void MyAppController::test()
     turnSampleBoxToGray();
 }
 
-void MyAppController::clickGenerateBox(QQuickItem *sampleBox)
-{
-    qDebug() << "This is: clickGenerateBox: " << sampleBox->objectName();
-}
 
-void MyAppController::addBoxByCpp(QObject *gridView)
-{
-    qDebug() << "This is: addBoxByCpp";
-    auto newItem = createBox();
-    newItem->setParentItem((qobject_cast<QQuickItem*> (gridView)));
-    newItem->setParent(gridView);
-    qDebug() << gridView->children().count();
-}
 
 void MyAppController::addShapeByCpp(QQuickItem* gridView, int shapeType, int index, QVariant color)
 {
