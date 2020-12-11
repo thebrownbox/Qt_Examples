@@ -132,6 +132,7 @@ Window {
 			console.log("alo: " + count)
 			myCurrentColor = Qt.rgba(Math.random(),Math.random(),Math.random(),1)
 			myCurrentIndex = Math.floor(Math.random()*100)
+			comboBox.currentIndex = Math.floor(Math.random()*10) % comboBox.count
 			if(count >= max_COUNT)
 				running = false;
 		}
