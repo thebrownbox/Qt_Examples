@@ -189,7 +189,6 @@ Window {
 	{
 		console.log(">> addBoxByQml ")
 		var newObject  = createShape(comboBox.currentIndex, myCurrentIndex, myCurrentColor)
-
 	}
 
 
@@ -203,7 +202,9 @@ Window {
 		}else{
 			component = Qt.createComponent("MyBox.qml")
 		}
-		var newObject = component.createObject()
+		var newObject = component.createObject(myGridView)
+		newObject.myColor = myCurrentColor
+		newObject.myIndex = myCurrentIndex
 		return newObject
 	}
 }
