@@ -4,5 +4,6 @@
         <file>MyBox.qml</file>
         <file>MyCircle.qml</file>
         <file>MyTriangle.qml</file>
+        <file>Test.qml</file>
     </qresource>
 </RCC>

@@ -7,7 +7,7 @@ Rectangle {
 
 	id: rectangle
 	width: 100
-	height: 100
+	height: width
 	color: myColor
 	border.color: "black"
 	radius: 10

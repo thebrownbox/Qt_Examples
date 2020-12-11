@@ -10,25 +10,19 @@ Shape {
     width: 100
     height: 100
 
+
+
     ShapePath {
         strokeWidth: 3
         strokeColor: "black"
 		fillColor: myColor
-
-        startX: 50; startY: 0
-        PathLine { x: 0; y: 100 }
-        PathLine { x: 100; y: 100 }
-
-
-//        PathLine { x: 50; y: 0 }
+		startX: 100; startY: 100
+		PathLine { x: 50; y: 0}
+		PathLine { x: 0; y: 100 }
+		PathLine { x: 100; y: 100 }
     }
 
-	ShapePath {
-		strokeColor: "black"
-		strokeWidth: 3
-		startX: 50; startY: 0
-		PathLine { x: 100; y: 100 }
-	}
+
 
 	 Text {
 		 id: element
