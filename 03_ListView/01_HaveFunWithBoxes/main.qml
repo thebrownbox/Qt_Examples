@@ -158,4 +158,10 @@ Window {
 	{
 		console.log(">> addBoxByQml ")
 	}
+
+
+	function createShape(type, index, color)
+	{
+
+	}
 }
