@@ -6,22 +6,35 @@ ApplicationWindow {
 	id: window
 	visible: true
 	width: 640
-	height: 480
+	height: 520
 	title: qsTr("Working with ListView")
 
 	menuBar: MenuBar {
+		id: myMenuBar
 		contentHeight: 10
 		Menu {
+			id: myFileMenu
 			title: qsTr("&File")
-			Action { text: qsTr("&Add New Member...") }
+			Action {
+				text: qsTr("&Add New Member...")
+				onTriggered: myAppController.onClickAddNewUser()
+			}
 			MenuSeparator { }
-			Action { text: qsTr("&Quit") }
+			Action {
+				text: qsTr("&Quit")
+				onTriggered: myAppController.onClickQuit()
+			}
 		}
 
 		Menu {
+			id: myHelpMenu
 			title: qsTr("&Help")
-			Action { text: qsTr("&About") }
+			Action {
+				text: qsTr("&About")
+				onTriggered: myAppController.onClickAbout()
+			}
 		}
+
 	}
 
 	GroupBox {
@@ -84,7 +97,7 @@ ApplicationWindow {
 	Text {
 		id: element
 		x: 213
-		y: 0
+		y: 4
 		width: 215
 		height: 32
 		text: qsTr("Team Management")

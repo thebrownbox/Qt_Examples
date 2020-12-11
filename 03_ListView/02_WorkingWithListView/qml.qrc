@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>AddUserPage.qml</file>
         <file>AboutPage.qml</file>
+        <file>Test.qml</file>
     </qresource>
 </RCC>

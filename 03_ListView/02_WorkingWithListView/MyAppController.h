@@ -9,6 +9,16 @@ class MyAppController : public QObject
 public:
     explicit MyAppController(QObject *parent = nullptr);
 
+
+public:
+    Q_INVOKABLE void onClickAddNewUser();
+    Q_INVOKABLE void onClickAbout();
+    Q_INVOKABLE void onClickQuit();
+
+//===========  Test functions ===========
+public:
+    Q_INVOKABLE void test();
+
 signals:
 
 };
