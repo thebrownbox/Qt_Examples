@@ -8,6 +8,7 @@ ApplicationWindow {
 	width: 640
 	height: 520
 	title: qsTr("Working with ListView")
+//	modality:
 
 	menuBar: MenuBar {
 		id: myMenuBar
