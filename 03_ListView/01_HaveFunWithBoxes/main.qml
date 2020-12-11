@@ -55,12 +55,22 @@ Window {
 		height: 436
 		title: qsTr("My Boxes")
 		Flickable {
+			id: myFlicker
 			pixelAligned: false
 			interactive: true
 			clip: true
 			anchors.fill: parent
 			contentHeight: getContentHeightForFlickable()
 			contentWidth: myGridView.width
+			rebound: Transition {
+				NumberAnimation {
+					properties: "x,y"
+					duration: 1000
+					easing.type: Easing.InOutQuad
+				}
+			}
+			onContentHeightChanged: myFlicker.contentY = Math.max(myFlicker.contentY, myFlicker.contentHeight - myFlicker.height)
+
 //    Rectangle{
 //        color: "red"
 //        height: getContentHeightForFlickable()
@@ -71,10 +81,17 @@ Window {
 				objectName: "myGridView"
 				width: 406
 				height: 800
+
+				add: Transition {
+					 NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+				 }
+
+				 onChildrenChanged: {
+					console.log("onChildrenChanged: " + myGridView.children.length)
+
+				 }
 			}
 		}
-
-
 	}
 
 
@@ -82,7 +99,7 @@ Window {
 		visible: true
 		id: myGenButton
 		x: 487
-		y: 252
+		y: 250
 		width: 111
 		height: 40
 		enabled: !myGenTimer.running
@@ -92,7 +109,7 @@ Window {
 
 	Button {
 		x: 487
-		y: 366
+		y: 359
 		width: 111
 		height: 40
 		text: qsTr("Add by Qml")
@@ -108,10 +125,23 @@ Window {
 		onClicked: myAppController.addShapeByCpp(myGridView, comboBox.currentIndex, myCurrentIndex, myCurrentColor)
 	}
 
+ Button {
+	 x: 487
+	 y: 426
+	 width: 111
+	 height: 40
+	 text: qsTr("CLEAR")
+	 onClicked: {
+		 myGridView.children = ""
+	 }
+ }
+
+
 	ComboBox {
 		id: comboBox
 		x: 473
 		y: 53
+		currentIndex: 0
 		enabled: !myGenTimer.running
 		font.weight: Font.Bold
 		font.pointSize: 10
@@ -123,13 +153,13 @@ Window {
 	Timer{
 		id: myGenTimer
 		property int count: 0
-		property int max_COUNT: 700 / interval
+		property int max_COUNT: 2000 / interval
 		interval: 50
 		repeat: true
 		running: false
 		onTriggered: {
 			count++
-			console.log("alo: " + count)
+//			console.log("alo: " + count)
 			myCurrentColor = Qt.rgba(Math.random(),Math.random(),Math.random(),1)
 			myCurrentIndex = Math.floor(Math.random()*100)
 			comboBox.currentIndex = Math.floor(Math.random()*10) % comboBox.count
@@ -139,7 +169,8 @@ Window {
 	}
 
 
-	function onClickGenerateShape()
+
+ function onClickGenerateShape()
 	{
 		myGenTimer.count = 0
 		myGenTimer.running = true
@@ -157,11 +188,22 @@ Window {
 	function addBoxByQml()
 	{
 		console.log(">> addBoxByQml ")
+		var newObject  = createShape(comboBox.currentIndex, myCurrentIndex, myCurrentColor)
+
 	}
 
 
 	function createShape(type, index, color)
 	{
-
+		var component = null
+		if(type == MY_SHAPE_TYPE_E.MY_SHAPE_CIRCLE){
+			component = Qt.createComponent("MyCircle.qml")
+		}else if(type == MY_SHAPE_TYPE_E.MY_SHAPE_TRIANGLE){
+			component = Qt.createComponent("MyTriangle.qml")
+		}else{
+			component = Qt.createComponent("MyBox.qml")
+		}
+		var newObject = component.createObject()
+		return newObject
 	}
 }

@@ -57,7 +57,7 @@ QQuickItem *MyAppController::createShape(MyAppController::MY_SHAPE_TYPE_E type, 
     }
 
     QQuickItem *newItem = qobject_cast<QQuickItem*>(pNewComponent->create(getEngine()->rootContext()));
-    QQmlEngine::setObjectOwnership(newItem, QQmlEngine::CppOwnership);
+//    QQmlEngine::setObjectOwnership(newItem, QQmlEngine::CppOwnership);
 
     newItem->setProperty("myIndex", index);
     newItem->setProperty("myColor", color);
