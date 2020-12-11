@@ -93,7 +93,7 @@ void MyAppController::addShapeByCpp(QQuickItem* gridView, int shapeType, int ind
     auto newItem = createShape((MyAppController::MY_SHAPE_TYPE_E)shapeType, index, color);
     newItem->setParentItem(gridView);
     newItem->setParent(gridView);
-    qDebug() << gridView->children().count();
+    qDebug() << "gridView->children().count(): " << gridView->children().count();
 }
 
 
