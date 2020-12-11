@@ -39,19 +39,20 @@ Window {
 		height: 436
 		title: qsTr("My Boxes")
 		Flickable {
-			anchors.rightMargin: 9
 			pixelAligned: false
 			interactive: true
 			clip: true
 			anchors.fill: parent
 			contentHeight: getContentHeightForFlickable()
 			contentWidth: myGridView.width
-
+    Rectangle{
+        color: "red"
+        height: getContentHeightForFlickable()
+        width: myGridView.width
+    }
 			Grid {
 				id: myGridView
 				objectName: "myGridView"
-				x: 2
-				y: 11
 				width: 406
 				height: 800
 
@@ -113,7 +114,11 @@ Window {
 
 	function getContentHeightForFlickable()
 	{
-		return (myGridView.children.length / 4 + 1) * mySampleBox.height
+        var numOfBox = myGridView.children.length;
+        var numOfRow = numOfBox == 0 ? 1 : (numOfBox%4 == 0 ? (numOfBox/4) : (Math.floor(numOfBox/4)+1))
+        var h = numOfRow * mySampleBox.height
+        console.log("h = " + h)
+        return h
 	}
 
 	function addBoxByQml()
