@@ -45,11 +45,11 @@ Window {
 			anchors.fill: parent
 			contentHeight: getContentHeightForFlickable()
 			contentWidth: myGridView.width
-    Rectangle{
-        color: "red"
-        height: getContentHeightForFlickable()
-        width: myGridView.width
-    }
+//    Rectangle{
+//        color: "red"
+//        height: getContentHeightForFlickable()
+//        width: myGridView.width
+//    }
 			Grid {
 				id: myGridView
 				objectName: "myGridView"
@@ -109,8 +109,14 @@ Window {
 		width: 111
 		height: 40
 		text: qsTr("Add by Cpp")
-		onClicked: myAppController.addBoxByCpp(myGridView)
-	}
+        onClicked: myAppController.addBoxByCpp(myGridView)
+    }
+
+ ComboBox {
+     id: comboBox
+     x: 473
+     y: 53
+ }
 
 	function getContentHeightForFlickable()
 	{
