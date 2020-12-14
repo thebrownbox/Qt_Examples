@@ -4,5 +4,6 @@
         <file>AddUserPage.qml</file>
         <file>AboutPage.qml</file>
         <file>Test.qml</file>
+        <file>UserForm.qml</file>
     </qresource>
 </RCC>
