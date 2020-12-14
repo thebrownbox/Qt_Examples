@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         MyAppController.cpp \
+        MyTeamListModel.cpp \
         MyTeamMember.cpp \
         main.cpp
 
@@ -33,6 +34,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     MyAppController.h \
+    MyTeamListModel.h \
     MyTeamMember.h
 
-DISTFILES +=
+DISTFILES += \
+    ReadMe.md

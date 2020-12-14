@@ -6,6 +6,9 @@
 class MyTeamMember : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString  mName       READ getName)
+    Q_PROPERTY(int      mAge        READ getAge)
+    Q_PROPERTY(int      mRole       READ getRole)
 
 /*New data type!*/
 public:
@@ -23,17 +26,23 @@ public:
 public:
     explicit MyTeamMember(QObject *parent = nullptr);
 
-    QString name() const;
+    QString getName() const;
     void setName(const QString &name);
 
-signals:
+    TEAM_ROLE getRole() const;
+    void setRole(const TEAM_ROLE &role);
 
+    int getAge() const;
+    void setAge(int age);
+
+signals:
+    void notifyPropertyChanged();
 
 
 private:
     QString mName;
     int mAge;
-
+    TEAM_ROLE mRole;
 };
 
 #endif // MYTEAMMEMBER_H

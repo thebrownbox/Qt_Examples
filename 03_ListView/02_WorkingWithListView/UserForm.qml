@@ -70,37 +70,103 @@ Item {
     }
 
     ComboBox {
-        id: txtRoleCombo
+        id: roleCombobox
         x: 82
         y: 120
         width: 173
         height: 40
         textRole: "text"
+        currentIndex: 0
+//        background: "red"
+        delegate: ItemDelegate {
+            width: roleCombobox.width
+            contentItem: Item {
+                anchors.fill: parent
+                Rectangle{
+                    anchors.fill: parent
+                    color: model.color
+                    MouseArea{
+                        id: mouseElement
+                        anchors.fill: parent
+                        onClicked: {
+                            console.log("Click")
+                            roleCombobox.currentIndex = model.index
+                            roleCombobox.popup.close()
+                        }
+
+                        hoverEnabled: true
+                    }
+                }
+
+                Text {
+                    id: txtTextElement
+                    anchors.fill: parent
+                    anchors.leftMargin: 5
+                    text: model.text
+                    elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
+                    font.pixelSize: mouseElement.containsMouse ? 14 : 12
+                    font.bold: mouseElement.containsMouse
+                }
+            }
+        }
+        background: Rectangle {
+            implicitWidth: 120
+            implicitHeight: 40
+            border.width: 1
+            color: teamRoleModel.get(roleCombobox.currentIndex).color
+        }
+
+        contentItem: Text {
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            text: roleCombobox.displayText
+//            font: roleCombobox.font
+            font.pixelSize: 13
+            font.bold: true
+            verticalAlignment: Text.AlignVCenter
+        }
+
+//            Item {
+//            height: 20
+//            width: 50
+//            Text {
+//                anchors.fill: parent
+//                id: name
+//                text: model.text
+//            }
+//            MouseArea{
+//                anchors.fill: parent
+//                onClicked: {
+//                    roleCombobox.currentIndex = model.index
+//                }
+//            }
+//        }
         model: teamRoleModel
     }
 
     ListModel {
         id: teamRoleModel
         ListElement {
+            property color color: "red"
             text: "BA"
+
             roleId: TEAM_ROLE.ROLE_BA
         }
 
         ListElement {
-            text: "QA"
-            roleId: TEAM_ROLE.ROLE_QA
-        }
-
-        ListElement {
+            property color color: "green"
             roleId: TEAM_ROLE.ROLE_TESTER
             text: "Tester"
         }
 
         ListElement {
+            property color color: "blue"
             roleId: TEAM_ROLE.ROLE_DEVLOPER
             text: "Devloper"
         }
         ListElement {
+            property color color: "yellow"
             roleId: TEAM_ROLE.ROLE_TEAM_LEADER
             text: "Team Leader"
         }
