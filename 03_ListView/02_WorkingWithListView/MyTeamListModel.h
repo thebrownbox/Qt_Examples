@@ -9,13 +9,23 @@
 class MyTeamListModel : public QAbstractListModel
 {
     Q_OBJECT
+
+public:
+    enum TeamListModeRole{
+        ROLE_NAME = Qt::UserRole + 1,
+        ROLE_AGE,
+        ROLE_ROLE
+    };
 public:
     explicit MyTeamListModel(QObject *parent = nullptr);
 
     // Must implement methods | Pure virtual methods
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex& modelIndex, int role = Qt::DisplayRole) const override;
+    QHash<int,QByteArray> roleNames() const override;
 
+    // User functions
+    void add(MyTeamMember* pNewMember);
 signals:
 
 

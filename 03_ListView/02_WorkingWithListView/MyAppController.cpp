@@ -8,7 +8,8 @@
 
 MyAppController::MyAppController(QObject *parent) : QObject(parent)
 {
-    myTeamListModel = new MyTeamListModel(this);
+    auto newList = initTeamListModel();
+    setMyTeamListModel(newList);
 }
 
 void MyAppController::onClickAddNewUser()
@@ -28,6 +29,29 @@ void MyAppController::onClickQuit()
 {
     qDebug() << "This: onClickQuit";
     QCoreApplication::exit();
+}
+
+MyTeamListModel *MyAppController::getMyTeamListModel() const
+{
+    return myTeamListModel;
+}
+
+void MyAppController::setMyTeamListModel(MyTeamListModel *value)
+{
+    myTeamListModel = value;
+    emit notifyTeamListModelChanged();
+}
+
+MyTeamListModel *MyAppController::initTeamListModel()
+{
+    MyTeamListModel* newModel = new MyTeamListModel(this);
+    for (int i = 0; i < 4; i++) {
+        auto pNewMember = new MyTeamMember(this);
+        pNewMember->setAge(i);
+        pNewMember->setName(QString("Hello"));
+        newModel->add(pNewMember);
+    }
+    return newModel;
 }
 
 void MyAppController::test()

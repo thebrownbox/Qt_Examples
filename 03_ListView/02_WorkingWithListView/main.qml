@@ -62,17 +62,21 @@ ApplicationWindow {
                     Rectangle {
                         width: 40
                         height: 40
-                        color: colorCode
+                        color: "red"
                     }
 
                     Text {
-                        text: name
+                        text: mAge
                         font.bold: true
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
             }
-            model: ListModel {
+            model: myAppController.myTeamListModel
+
+
+           /*
+           ListModel {
                 ListElement {
                     name: "Grey"
                     colorCode: "grey"
@@ -93,6 +97,7 @@ ApplicationWindow {
                     colorCode: "green"
                 }
             }
+            */
         }
     }
 

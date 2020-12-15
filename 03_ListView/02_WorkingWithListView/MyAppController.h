@@ -7,6 +7,8 @@
 class MyAppController : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QObject* myTeamListModel READ getMyTeamListModel NOTIFY notifyTeamListModelChanged)
+
 public:
     explicit MyAppController(QObject *parent = nullptr);
 
@@ -18,15 +20,24 @@ public:
 
 
 
-private:
-    MyTeamListModel *myTeamListModel;
+
 
 //===========  Test functions ===========
 public:
     Q_INVOKABLE void test();
 
-signals:
+    MyTeamListModel *getMyTeamListModel() const;
+    void setMyTeamListModel(MyTeamListModel *value);
 
+signals:
+    void notifyTeamListModelChanged();
+
+private:
+    MyTeamListModel *initTeamListModel();
+
+
+private:
+    MyTeamListModel *myTeamListModel;
 };
 
 #endif // MYAPPCONTROLLER_H
