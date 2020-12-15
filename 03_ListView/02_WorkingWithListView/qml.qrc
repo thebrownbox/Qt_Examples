@@ -5,5 +5,7 @@
         <file>AboutPage.qml</file>
         <file>Test.qml</file>
         <file>UserForm.qml</file>
+        <file>TeamMemberDelegate.qml</file>
+        <file>SingleData.qml</file>
     </qresource>
 </RCC>

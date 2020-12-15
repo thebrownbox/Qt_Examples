@@ -52,26 +52,7 @@ ApplicationWindow {
             clip: true
             anchors.topMargin: 10
             anchors.fill: parent
-            delegate: Item {
-                x: 5
-                width: 80
-                height: 40
-                Row {
-                    id: row1
-                    spacing: 10
-                    Rectangle {
-                        width: 40
-                        height: 40
-                        color: "red"
-                    }
-
-                    Text {
-                        text: mAge
-                        font.bold: true
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-            }
+            delegate: TeamMemberDelegate{}
             model: myAppController.myTeamListModel
 
 
@@ -107,7 +88,7 @@ ApplicationWindow {
         y: 4
         width: 215
         height: 32
-        text: qsTr("Team Management")
+        text: qsTr("Team Management") + RoleList.get(0)
         anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter

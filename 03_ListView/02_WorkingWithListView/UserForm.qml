@@ -130,26 +130,26 @@ Item {
     ListModel {
         id: teamRoleModel
         ListElement {
-            property color color: "red"
-            text: "BA"
+            property color color: "red" //SingleData.ROLE_BA_COLOR
             roleId: TEAM_ROLE.ROLE_BA
+            text: "BA"// SingleData.test
         }
 
         ListElement {
-            property color color: "green"
+            property color color: "green" //SingleData.ROLE_TESTER_COLOR
             roleId: TEAM_ROLE.ROLE_TESTER
-            text: "Tester"
+            text: "Tester" //SingleData.rOLE_TESTER_TEXT
         }
 
         ListElement {
-            property color color: "blue"
+            property color color: "blue" //SingleData.ROLE_DEVELOPER_COLOR
             roleId: TEAM_ROLE.ROLE_DEVLOPER
-            text: "Devloper"
+            text: "Developer" //SingleData.rOLE_DEVELOPER_TEXT
         }
         ListElement {
-            property color color: "yellow"
+            property color color: "yellow" //SingleData.ROLE_TEAMLEADER_COLOR
             roleId: TEAM_ROLE.ROLE_TEAM_LEADER
-            text: "Team Leader"
+            text: "Team Leader" //SingleData.rOLE_TEAMLEADER_TEXT
         }
     }
 
