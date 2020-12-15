@@ -8,7 +8,7 @@
 
 MyAppController::MyAppController(QObject *parent) : QObject(parent)
 {
-
+    myTeamListModel = new MyTeamListModel(this);
 }
 
 void MyAppController::onClickAddNewUser()

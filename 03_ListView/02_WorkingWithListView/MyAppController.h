@@ -2,6 +2,7 @@
 #define MYAPPCONTROLLER_H
 
 #include <QObject>
+#include "MyTeamListModel.h"
 
 class MyAppController : public QObject
 {
@@ -14,6 +15,11 @@ public:
     Q_INVOKABLE void onClickAddNewUser();
     Q_INVOKABLE void onClickAbout();
     Q_INVOKABLE void onClickQuit();
+
+
+
+private:
+    MyTeamListModel *myTeamListModel;
 
 //===========  Test functions ===========
 public:

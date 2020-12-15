@@ -77,7 +77,8 @@ Item {
         height: 40
         textRole: "text"
         currentIndex: 0
-//        background: "red"
+        model: teamRoleModel
+
         delegate: ItemDelegate {
             width: roleCombobox.width
             contentItem: Item {
@@ -93,7 +94,6 @@ Item {
                             roleCombobox.currentIndex = model.index
                             roleCombobox.popup.close()
                         }
-
                         hoverEnabled: true
                     }
                 }
@@ -121,28 +121,10 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 10
             text: roleCombobox.displayText
-//            font: roleCombobox.font
             font.pixelSize: 13
             font.bold: true
             verticalAlignment: Text.AlignVCenter
         }
-
-//            Item {
-//            height: 20
-//            width: 50
-//            Text {
-//                anchors.fill: parent
-//                id: name
-//                text: model.text
-//            }
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: {
-//                    roleCombobox.currentIndex = model.index
-//                }
-//            }
-//        }
-        model: teamRoleModel
     }
 
     ListModel {
@@ -150,7 +132,6 @@ Item {
         ListElement {
             property color color: "red"
             text: "BA"
-
             roleId: TEAM_ROLE.ROLE_BA
         }
 
