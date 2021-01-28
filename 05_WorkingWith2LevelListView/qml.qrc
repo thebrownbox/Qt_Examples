@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>SettingRecordingOptions.qml</file>
+        <file>SettingEventDetectionSensitivity.qml</file>
+        <file>SettingTimeLapseRecordingInterval.qml</file>
     </qresource>
 </RCC>
