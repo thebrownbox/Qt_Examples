@@ -18,6 +18,7 @@ Item {
         width: 76
         height: 28
         text: qsTr("Name:")
+		color: SingleData.ROLE_DEVELOPER_COLOR
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
@@ -142,7 +143,7 @@ Item {
         }
 
         ListElement {
-            property color color: "blue" //SingleData.ROLE_DEVELOPER_COLOR
+			property color color: "blue" //SingleData.ROLE_DEVELOPER_COLOR
             roleId: TEAM_ROLE.ROLE_DEVLOPER
             text: "Developer" //SingleData.rOLE_DEVELOPER_TEXT
         }

@@ -88,7 +88,7 @@ ApplicationWindow {
         y: 4
         width: 215
         height: 32
-        text: qsTr("Team Management") + RoleList.get(0)
+		text: qsTr("Team Management")
         anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
