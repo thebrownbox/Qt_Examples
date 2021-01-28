@@ -109,6 +109,7 @@ Window {
         height: 314
         color: "black"
         Loader{
+            anchors.fill: parent
             id: subMenuLoader
             source: listMainMenu.currentItem.myData.qmlSource
         }
