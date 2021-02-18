@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>light_on.png</file>
+        <file>light_off.png</file>
+    </qresource>
+</RCC>
