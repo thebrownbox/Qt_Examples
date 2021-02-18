@@ -1,11 +1,18 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QtDBus>
+#include <QDebug>
+
 #include "AppController.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+
+
+    //qDebug() << QDBusConnection::sessionBus().isConnected();
 
     QQmlApplicationEngine engine;
 

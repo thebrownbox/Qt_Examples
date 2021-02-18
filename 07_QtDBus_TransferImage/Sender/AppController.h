@@ -8,6 +8,10 @@ class AppController : public QObject
 {
     Q_OBJECT
 public:
+    static const QString DBUS_SERVICE_NAME;
+    static const QString DBUS_TEXT_ARG_NAME;
+    static const QString DBUS_OBJ_PATH;
+
     explicit AppController(QObject *parent = 0);
 
 signals:
